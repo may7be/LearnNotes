@@ -1,11 +1,17 @@
 package monitordemo.demo.myapp.myapplication;
 
 import org.junit.Test;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -183,7 +189,7 @@ public class RxJavaDemo {
                 for (int i = 0; i < 3; i++) {
                     list.add("I am value:" + integer);
                 }
-                return Observable.fromIterable(list) ;
+                return Observable.fromIterable(list);
             }
         }).subscribeOn(Schedulers.newThread())
                 .observeOn(Schedulers.newThread())
@@ -220,10 +226,71 @@ public class RxJavaDemo {
         }).subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        System.out.println("concatMap: accept: " + s + "\n");
+                    }
+                });
+    }
+
+    @Test
+    public void testFlowable() {
+        Flowable.create(new FlowableOnSubscribe<String>() {
             @Override
-            public void accept(String s) throws Exception {
-                System.out.println("concatMap: accept: " + s + "\n");
+            public void subscribe(FlowableEmitter<String> emitter) throws Exception {
+
+            }
+        }, BackpressureStrategy.BUFFER).subscribe(new Subscriber<String>() {
+            @Override
+            public void onSubscribe(Subscription s) {
+
+            }
+
+            @Override
+            public void onNext(String s) {
+
+            }
+
+            @Override
+            public void onError(Throwable t) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
             }
         });
+    }
+
+    @Test
+    public void testConsumer() {
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+
+            }
+        })
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }
