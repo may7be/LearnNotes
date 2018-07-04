@@ -1,1 +1,1 @@
-include ':app', ':debugutil'
+include ':app', ':menulibrary'
