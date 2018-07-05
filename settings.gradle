@@ -1,1 +1,1 @@
-include ':app', ':menulibrary'
+include ':app', ':gradle_lib',':menu_lib', ':crash_lib', 'utils_lib', 'net_lib','stomp_lib','view_lib'

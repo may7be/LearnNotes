@@ -1,0 +1,279 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+    <style name="dialog" parent="@android:style/Theme.Material.Light.Dialog.MinWidth"></style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/text_size_dialog_title</item>
+    </style>
+    <style name="BaseDialog" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- 登录选择框 -->
+    <style name="SelectPopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/select_popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/select_popup_exit</item>
+    </style>
+
+    <!-- listview style -->
+
+    <style name="greylineviewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingRight">3dp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <!-- 循环水桶对话框 -->
+    <!-- 库存最左面 -->
+    <style name="stockradiogroupleft">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <!-- 库存中间 -->
+    <style name="stockradiogroupCetent">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <!-- 库存最右面 -->
+    <style name="stockradiogroupRight">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!-- 首页，洗精煤，混煤  选择文字 -->
+
+    <style name="shift_normal_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">@dimen/monitor_font_size8</item>
+    </style>
+
+    <style name="shift_left_arrow">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:src">@drawable/left_arrow</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="shift_right_arrow">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:src">@drawable/right_arrow</item>
+    </style>
+
+    <style name="shift_common">
+        <item name="android:paddingLeft">31dp</item>
+        <item name="android:paddingRight">31dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@color/common_bg</item>
+    </style>
+
+    <style name="shift_my_attendance_text_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">@dimen/monitor_font_size10</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="ProgressBar_Mini" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:maxHeight">50dip</item>
+        <item name="android:minHeight">8dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:progressDrawable">@drawable/progressbar_mini</item>
+    </style>
+
+    <style name="CustomProgressDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <!-- 定位主界面人数图标样式 -->
+    <style name="position_perCnt">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/monitor_blue</item>
+        <item name="android:paddingLeft">13dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:text">0人</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="shift_attendance_list_header_text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="shift_schedule_time">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:gravity">top|center_horizontal</item>
+    </style>
+
+    <style name="shift_button">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textColor">@color/monitor_blue</item>
+        <item name="android:background">@drawable/background_unselected_200_60</item>
+
+    </style>
+
+    <style name="shift_button_relative_layout" parent="shift_button">
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="shift_schedule_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <!-- 设置弹出窗口的属性，frame叠加，isfloat是否浮动，tarnslucent是否半透明，dim是背景是否变暗 -->
+    <style name="Theme_audioDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="TextColorPrimary_TextSizeNormal">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="TextColorSecondary_TextSizeNormal">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="TextColorPrimary_TextSizeLarge">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextColorSecondary_TextSizeLarge">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="Start_checkbox">
+        <item name="android:textSize">16dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:drawableLeft">@drawable/start_checkbox_selector</item>
+        <item name="android:button">@null</item>
+
+    </style>
+
+    <style name="switch_button_left">
+        <item name="android:background">@drawable/feed_selector_new_left</item>
+        <item name="android:textColor">@drawable/selector_radio_button_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/monitor_font_size0</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="switch_button">
+        <item name="android:background">@drawable/feed_selector_new_right</item>
+        <item name="android:textColor">@drawable/selector_radio_button_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/monitor_font_size0</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="btnstyle_150_40_5dpbluecor_15dpts">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@drawable/solid_blue_corners5dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    //单选框
+    <style name="radio_button_blue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@drawable/radio_button_blue_selector</item>
+    </style>
+
+    //方框单选框
+    <style name="radio_button_blue_rectangle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">12sp</item>
+        <item name="android:button">@drawable/radio_button_blue_selector_rectangle</item>
+    </style>
+
+
+
+    //发现边栏菜单项
+    <style name="find_side_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@drawable/position_personitem_selector</item>
+    </style>
+
+    <style name="TabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/monitor_font_size3</item>
+        <item name="android:textColor">@color/text_color_gray_light</item>
+    </style>
+
+    //压滤日志时间轴页面历史itemView
+    <style name="filter_press_log_history_item">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+</resources>

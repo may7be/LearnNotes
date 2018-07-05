@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--圆形头像-->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+    <!-- TCSView -->
+    <declare-styleable name="TCSView">
+        <attr name="isUp" format="boolean" />
+    </declare-styleable>
+    <!-- SliderView -->
+    <declare-styleable name="SliderView">
+        <attr name="foreground" format="reference" />
+        <attr name="point" format="reference" />
+        <attr name="isLeft" format="boolean" />
+    </declare-styleable>
+    <!-- RoundProgressBar -->
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color" />
+        <attr name="roundProgressColor" format="color" />
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="max" format="integer"></attr>
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+
+
+    <!-- Panel -->
+    <declare-styleable name="Panel">
+
+        <!-- Defines panel animation duration in ms. -->
+        <attr name="animationDuration" format="integer" />
+        <!-- Defines panel position on the screen. -->
+        <attr name="position">
+
+            <!-- Panel placed at top of the screen. -->
+            <enum name="top" value="0" />
+            <!-- Panel placed at bottom of the screen. -->
+            <enum name="bottom" value="1" />
+            <!-- Panel placed at left of the screen. -->
+            <enum name="left" value="2" />
+            <!-- Panel placed at right of the screen. -->
+            <enum name="right" value="3" />
+        </attr>
+        <!-- Identifier for the child that represents the panel's handle. -->
+        <attr name="handle" format="reference" />
+        <!-- Identifier for the child that represents the panel's content. -->
+        <attr name="content" format="reference" />
+        <!-- Defines if flying gesture forces linear interpolator in animation. -->
+        <attr name="linearFlying" format="boolean" />
+        <!-- Defines size relative to parent (must be in form: nn%p). -->
+        <attr name="weight" format="fraction" />
+        <!-- Defines opened handle (drawable/color). -->
+        <attr name="openedHandle" format="reference|color" />
+        <!-- Defines closed handle (drawable/color). -->
+        <attr name="closedHandle" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="SmoothButton">
+        <attr name="transitionDrawable" format="reference" />
+        <attr name="transitionDrawableLength" format="integer" />
+        <attr name="transitionTextColorUp" format="color" />
+        <attr name="transitionTextColorDown" format="color" />
+    </declare-styleable>
+    <declare-styleable name="Switcher">
+
+        <!-- Defines switcher animation duration in ms. -->
+        <attr name="animationDuration" />
+        <!-- Defines switcher idle timeout in ms. -->
+        <attr name="idleTimeout" format="integer" />
+        <!-- Defines opened handle (drawable). -->
+        <attr name="decreaseButton" format="reference" />
+        <!-- Defines opened handle (drawable). -->
+        <attr name="increaseButton" format="reference" />
+    </declare-styleable>
+
+    <!-- position DispatchImageview -->
+    <!-- 增加设备描述和位置坐标 -->
+    <declare-styleable name="posImg">
+        <attr name="itemDes" format="string"></attr>
+        <attr name="oriX" format="float"></attr>
+        <attr name="oriY" format="float"></attr>
+        <attr name="oriWidth" format="float"></attr>
+        <attr name="oriHeight" format="float"></attr>
+        <attr name="scaleable" format="boolean" />
+    </declare-styleable>
+
+    <!-- 定位icon属性 -->
+    <declare-styleable name="cirTextView">
+        <attr name="cornerSize" format="dimension"></attr>
+        <attr name="bgcolor" format="color"></attr>
+    </declare-styleable>
+    <declare-styleable name="DeviceTableLayout">
+        <attr name="column_count" format="integer" />
+        <attr name="row_count" format="integer" />
+        <attr name="cell_padding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ToggleSwitch">
+        <attr name="textLeft" format="string" />
+        <attr name="textCenter" format="string" />
+        <attr name="textRight" format="string" />
+        <attr name="textArray" format="reference" />
+        <attr name="selectIndex" format="string" />
+        <attr name="switchButtonTextColor" format="color" />
+        <attr name="switchButtonTextSize" format="dimension" />
+        <attr name="backgroundTextColor" format="color" />
+        <attr name="backgroundTextSize" format="dimension" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="backgroundCorners" format="dimension" />
+        <attr name="switchButtonColor" format="color" />
+        <attr name="switchButtonCorners" format="dimension" />
+        <attr name="ss_dividerColor" format="color" />
+        <attr name="ss_dividerPadding" format="dimension" />
+        <attr name="dividerWidth" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="CustomTableLayout">
+        <attr name="rowCount" format="integer" />
+        <attr name="columnCount" format="integer" />
+        <attr name="verticalCellPadding" format="dimension" />
+        <attr name="horizontalCellPadding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="GifView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="VerticalTabLayout">
+        <attr name="tabIndicatorColor" format="color" />
+        <attr name="tabIndicatorWidth" format="dimension" />
+        <attr name="tabIndicatorCorners" format="dimension" />
+        <attr name="tabIndicatorGravity" format="enum">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+            <enum name="fill" value="119" />
+        </attr>
+        <attr name="dividerHeight" format="dimension" />
+        <attr name="tabArrowColor" format="color" />
+        <attr name="tabArrowGravity" format="enum">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="tabArrowType" format="enum">
+            <enum name="inner" value="1" />
+            <enum name="outer" value="2" />
+        </attr>
+        <attr name="tabHeight" format="dimension" />
+        <attr name="tabTextColor" format="color" />
+        <attr name="tabSelectedTextColor" format="color" />
+        <attr name="tabTextAppearance" format="reference" />
+        <attr name="tabTextSize" format="dimension" />
+        <attr name="dividerColor" format="color" />
+        <attr name="dividerPadding" format="dimension" />
+        <attr name="tabPadding" format="dimension" />
+        <attr name="tabPaddingLeft" format="dimension" />
+        <attr name="tabPaddingRight" format="dimension" />
+        <attr name="tabPaddingTop" format="dimension" />
+        <attr name="tabPaddingBottom" format="dimension" />
+        <attr name="tabIconPadding" format="dimension" />
+        <attr name="tabViewGravity" format="enum">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+            <enum name="center" value="17" />
+            <enum name="center_vertical" value="16" />
+            <enum name="center_horizontal" value="1" />
+            <enum name="bottom" value="80" />
+            <enum name="top" value="48" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="TabItem">
+        <attr name="text" format="string" />
+        <attr name="iconGravity" format="enum">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+            <enum name="bottom" value="80" />
+            <enum name="top" value="48" />
+        </attr>
+        <attr name="icon" format="reference" />
+        <attr name="iconWidth" format="dimension" />
+        <attr name="iconHeight" format="dimension" />
+    </declare-styleable>
+
+    <!--具有状态的按钮-->
+    <declare-styleable name="StateButton">
+        <!--text color-->
+        <attr name="normalTextColor" format="color|reference" />
+        <attr name="pressedTextColor" format="color|reference" />
+        <attr name="unableTextColor" format="color|reference" />
+
+        <!--stroke width and color, dash width, dash gap-->
+        <attr name="strokeDashWidth" format="dimension|reference" />
+        <attr name="strokeDashGap" format="dimension|reference" />
+        <attr name="normalStrokeWidth" format="dimension|reference" />
+        <attr name="pressedStrokeWidth" format="dimension|reference" />
+        <attr name="unableStrokeWidth" format="dimension|reference" />
+        <attr name="normalStrokeColor" format="color|reference" />
+        <attr name="pressedStrokeColor" format="color|reference" />
+        <attr name="unableStrokeColor" format="color|reference" />
+
+        <!--background color-->
+        <attr name="normalBackgroundColor" format="color|reference" />
+        <attr name="pressedBackgroundColor" format="color|reference" />
+        <attr name="unableBackgroundColor" format="color|reference" />
+
+        <!--background radius-->
+        <attr name="radius" format="dimension|reference" />
+        <attr name="round" format="boolean|reference" />
+
+        <!--animation duration-->
+        <attr name="animDuration" format="integer|reference" />
+
+    </declare-styleable>
+
+    <!-- 启停界面仪表 -->
+    <declare-styleable name="Start_Meter">
+        <attr name="outRadius" format="dimension" />
+        <attr name="outColor" format="color" />
+        <attr name="midRadius" format="dimension" />
+        <attr name="midColor" format="color" />
+        <attr name="innRadius" format="dimension" />
+        <attr name="innColor" format="color" />
+        <attr name="gapAng" format="float" />
+        <attr name="start_text" format="string" />
+    </declare-styleable>
+
+    <!-- 启停页面带progressbar的文字显示模块 -->
+    <declare-styleable name="StartTextProgressBar">
+        <attr name="isprogressbarvisibile" format="boolean" />
+        <attr name="outlinecolor">
+            <enum name="START_GREEN" value="1" />
+            <enum name="START_RED" value="2" />
+            <enum name="START_GRAY" value="3" />
+            <enum name="START_WHITE" value="4" />
+        </attr>
+        <attr name="progressBarHeight" format="dimension" />
+        <attr name="sys_name" format="string" />
+    </declare-styleable>
+    <!-- 自定义textview -->
+    <declare-styleable name="CustomTextView">
+        <attr name="custom_style">
+            <enum name="LARGE_TITLE" value="48" />
+            <enum name="MAIN_TITLE" value="40" />
+            <!-- size 36px -->
+            <enum name="MIDDLE_TITLE" value="36" />
+            <enum name="STANDARD_TITLE" value="32" />
+            <enum name="STANDARD_TITLE_WITH_BOLD" value="33" />
+            <enum name="STANDARD_ONE" value="28" />
+            <enum name="STANDARD_ONE_WITH_BOLD" value="29" />
+            <enum name="STANDARD_TWO" value="26" />
+            <enum name="STANDARD_TWO_WITH_BOLD" value="27" />
+            <enum name="DEFAULT_ASSIST" value="24" />
+        </attr>
+    </declare-styleable>
+    <!-- 侧边复用菜单栏 -->
+    <declare-styleable name="RecyclerSideMenuBar">
+        <attr name="group_text_size" format="dimension" />
+        <attr name="group_text_color" format="color" />
+        <attr name="group_background" format="color" />
+        <attr name="item_text_size" format="dimension" />
+        <attr name="item_text_color" format="color" />
+        <attr name="item_background" format="color" />
+        <attr name="menu_name" format="string" />
+        <attr name="menu_background" format="color" />
+        <attr name="menu_color" format="color" />
+        <attr name="menu_text_size" format="dimension" />
+        <attr name="item_decoration" format="boolean" />
+    </declare-styleable>
+
+    <!--自定义日期选择控件-->
+    <declare-styleable name="DatePickerView">
+        <attr name="tv_date_size" format="dimension" />
+        <attr name="tv_date_color" format="color" />
+        <attr name="day_section" format="integer" />
+    </declare-styleable>
+
+    <!--双向箭头圆球滑块按钮-->
+    <declare-styleable name="SelectSliderButton">
+        <attr name="left_text" format="string" />
+        <attr name="left_text_size" format="dimension" />
+        <attr name="left_text_color" format="color" />
+        <attr name="right_text" format="string" />
+        <attr name="right_text_size" format="dimension" />
+        <attr name="right_text_color" format="color" />
+    </declare-styleable>
+
+    <!--压滤日志自定义view-->
+    <attr name="topBackgroundHeight" format="dimension" />
+    <attr name="bottomBackgroundHeight" format="dimension" />
+    <attr name="middleSpace" format="dimension" />
+    <attr name="topBackgroundColor" format="color" />
+    <attr name="bottomBackgroundColor" format="color" />
+    <attr name="bigBlockColor" format="color" />
+    <attr name="smallBlockColor" format="color" />
+    <attr name="scaleTextSize" format="dimension" />
+    <attr name="totalNumberTextSize" format="dimension" />
+    <attr name="totalNumberTextColor" format="color" />
+    <attr name="scaleTextColor" format="color" />
+    <attr name="scaleWidth" format="dimension" />
+    <attr name="progressBackgroundHeight" format="dimension" />
+    <attr name="secondProgressBackgroundColor" format="color" />
+    <attr name="progressBackgroundColor" format="color" />
+    <attr name="bottomScaleTextColor" format="color" />
+    <attr name="topScaleTextColor" format="color" />
+
+    <!--压滤日志自定义view-->
+    <declare-styleable name="CustomDevicePressNumberView">
+        <attr name="topBackgroundHeight" />
+        <attr name="bottomBackgroundHeight" />
+        <attr name="middleSpace" />
+        <attr name="topBackgroundColor" />
+        <attr name="bottomBackgroundColor" />
+        <attr name="bigBlockColor" />
+        <attr name="smallBlockColor" />
+        <attr name="scaleTextSize" />
+        <attr name="totalNumberTextSize" />
+        <attr name="totalNumberTextColor" />
+        <attr name="scaleTextColor" />
+        <attr name="scaleWidth" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomPressPlateSumView">
+        <attr name="progressBackgroundHeight" />
+        <attr name="bottomBackgroundHeight" />
+        <attr name="progressBackgroundColor" />
+        <attr name="bottomBackgroundColor" />
+        <attr name="middleSpace" />
+        <attr name="scaleTextSize" />
+        <attr name="secondProgressBackgroundColor" />
+        <attr name="scaleWidth" />
+        <attr name="smallBlockColor" />
+        <attr name="bigBlockColor" />
+        <attr name="bottomScaleTextColor" />
+        <attr name="topScaleTextColor" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomTimeAxisView">
+        <attr name="scaleLeftMargin" format="dimension" />
+        <attr name="scaleRightMargin" format="dimension" />
+    </declare-styleable>
+
+    <!--低压空压机状态区间自定义view-->
+    <declare-styleable name="CustomStatusSectionView">
+        <attr name="backGroundHeight" format="dimension" />
+    </declare-styleable>
+
+    <!-- 启停仓储情况圆环 -->
+    <declare-styleable name="StartAndStopStorageCircle">
+        <attr name="outCirqueOutRadium" format="dimension" />
+        <attr name="outCirqueWidth" format="dimension" />
+        <attr name="inCirqueOutRadium" format="dimension" />
+        <attr name="inCirqueWidth" format="dimension" />
+        <attr name="outCirqueNormalColor" format="color" />
+        <attr name="inCirqueNormalColor" format="color" />
+        <attr name="cirqueAbnormalColor" format="color" />
+        <attr name="systemNameColor" format="color" />
+        <attr name="titlesTextSize" format="dimension" />
+    </declare-styleable>
+
+    <!--自定义ToggleButton属性-->
+    <declare-styleable name="OutsideTextToggleButton">
+        <attr name="leftText" format="string" />
+        <attr name="rightText" format="string" />
+        <attr name="defaultTextColor" format="color" />
+        <attr name="checkedLeftTextColor" format="color" />
+        <attr name="checkedRightTextColor" format="color" />
+        <attr name="toggleButtonTextSize" format="dimension" />
+        <attr name="toggleButtonMargin" format="dimension" />
+        <attr name="toggleButtonBackground" format="reference" />
+    </declare-styleable>
+</resources>

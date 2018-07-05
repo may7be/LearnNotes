@@ -9,7 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/menulibrary" />
+            <option value="$PROJECT_DIR$/crash_lib" />
+            <option value="$PROJECT_DIR$/gradle_lib" />
+            <option value="$PROJECT_DIR$/menu_lib" />
+            <option value="$PROJECT_DIR$/net_lib" />
+            <option value="$PROJECT_DIR$/stomp_lib" />
+            <option value="$PROJECT_DIR$/utils_lib" />
+            <option value="$PROJECT_DIR$/view_lib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

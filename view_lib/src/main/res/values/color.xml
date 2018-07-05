@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--UI规范颜色-->
+    <!-- 整体风格配色，各模块统一使用 -->
+    <color name="primary">#007aff</color>
+    <color name="secondary_primary">#de007aff</color>
+    <color name="primary_dark">#036bdd</color>
+
+    <color name="common_bg_dark">#eaeaea</color>
+    <color name="common_bg">#f9f9f9</color>  <!-- 背景色、弹窗底色 -->
+    <color name="gray">#bbbbbb</color>
+    <color name="gray_light">#e0e0e0</color>
+    <color name="gray_bg_light">#e5f1ff</color>
+
+    <color name="text_color_gray_light">#8a000000</color><!--字体黑色，不透明度54%-->
+    <color name="text_color_gray_dark">#ad000000</color><!--字体黑色，不透明度68%-->
+    <color name="gray_bg">#f0f0f0</color>
+
+    <color name="primary_red">#ef6e5b</color>
+    <color name="primary_orange">#f6b45d</color>
+    <color name="secondary_green">#80c269</color>
+    <color name="secondary_blue">#30a6e4</color>
+    <color name="secondary_red">#d86868</color>
+    <color name="secondary_red2">#f36f61</color>
+    <color name="purple">#ef5bc0</color>
+    <color name="secondary_yellow">#efad3a</color>
+    <!--UI规范颜色 end-->
+
+    <color name="primary_text">#AA000000</color>
+    <color name="secondary_text">#8A000000</color>
+    <color name="primary_black">#000000</color>
+    <color name="deep_primary_text">#deffffff</color>
+    <color name="red">#c10000</color>
+    <color name="brown">#f19149</color>
+    <color name="brown_dark">#603b07</color>
+
+    <color name="gray_dark">#6a6a60</color>
+    <color name="divider">#e0e0e0</color>
+    <color name="divider_light">#e2e2e2</color>
+    <color name="divider_dark">#888888</color>
+    <color name="yellow">#ede036</color>
+    <color name="text_gray_light">#e0e0e0</color>
+    <color name="solid_circle_color">#bbbbbb</color>
+    <color name="transparent">#00000000</color>
+    <color name="dialog_title_bg">#f9f9f9</color>
+    <color name="white">#ffffff</color>
+    <color name="secondary_white">#8affffff</color>
+    <color name="green">#8bd96f</color>
+    <color name="dark_gray">#6f6f6f</color>
+    <color name="gray_bg_dark">#7a7a7a</color>
+
+    <!--LineChart字体-曲线颜色定义-->
+    <color name="check_box1">#58e555</color>
+    <color name="press_filter_color">#f1e101</color>
+
+    <color name="line_blue">#6699ff</color>
+    <color name="line_yellow">#ffcc00</color>
+
+    <color name="black">#FF000000</color>
+    <color name="black_transparency">#99000000</color>
+
+    <!-- 聊天 chat -->
+    <color name="chat_black_text">#333333</color>
+    <color name="chat_grey_text">#757575</color>
+
+    <color name="light_black_text">#666666</color>
+    <color name="monitor_text_color_blue">#3798DC</color>
+    <color name="monitor_divide_color">#cecfce</color>
+    <color name="monitor_text__color">#505050</color>
+    <color name="monitor_center_text__color">#737e86</color>
+    <color name="monitor_detail_bg">#f5f5f5</color>
+    <color name="monitor_dialog_add_text_color">#999999</color>
+    <color name="monitor_dialog_title_bg">#dee3e6</color>
+    <color name="monitor_control_text_color">#8a8a8a</color>
+    <color name="monitor_addview_text_color">#737373</color>
+    <color name="monitor_devicestate_green_color">#34ca0c</color>
+    <color name="monitor_main_bg">#FAFAFA</color>
+    <color name="common_dialog_bg">#00000000</color>
+    <color name="monitor_large_textcolor">#889093</color>
+    <color name="bp_black1">#303030</color>
+    <color name="font_color">#666666</color>
+    <color name="monitor_blue">#007aff</color>
+    <color name="monitor_grey">#6a6a60</color>
+
+    <color name="shift_legend_blue">#80d3fb</color>
+    <color name="shift_legend_blue2">#b6e4fa</color>
+    <color name="shift_legend_green">#9dc687</color>
+    <color name="shift_legend_green2">#c2f0ab</color>
+    <color name="shift_legend_pink">#e188a6</color>
+    <color name="shift_legend_pink2">#ffa2e7</color>
+    <color name="shift_legend_red">#c10000</color>
+    <color name="shift_shift_mgmt_bg">#e5e5e5</color>
+    <!-- 定位 -->
+    <color name="cirbg_default">#ff8a8a8a</color>
+    <color name="alarm_gray_color">#cccccc</color>
+
+    <color name="alarm_blue_level">#7ecef4</color>
+
+</resources>
