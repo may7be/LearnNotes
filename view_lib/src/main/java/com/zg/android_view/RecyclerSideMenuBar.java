@@ -6,13 +6,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -25,7 +26,7 @@ import java.util.Stack;
  */
 
 public class RecyclerSideMenuBar extends RelativeLayout {
-    private RecyclerView menuList,subMenuList;
+    private RecyclerView menuList, subMenuList;
     private TextView tvBack, tvMenuTitle;
     private LinearLayout layoutTitle;
     private SideMenuSectionAdapter sideMenuSectionAdapter;
@@ -125,7 +126,7 @@ public class RecyclerSideMenuBar extends RelativeLayout {
 
                     if (!curItem.isUser()) {
                         itemClickListener.childItemClick(curItem);
-                    } else{
+                    } else {
                         itemClickListener.nodeItemClick(curItem);
                     }
                 }
@@ -167,7 +168,7 @@ public class RecyclerSideMenuBar extends RelativeLayout {
 
     public void addChildren(List<SideMenuItem> dataList) {
         String cateName = "";
-        if (curItem != null){
+        if (curItem != null) {
             cateName = curItem.getNameStr();
         }
         addChildren(dataList, cateName);
@@ -196,7 +197,9 @@ public class RecyclerSideMenuBar extends RelativeLayout {
      */
     public interface MenuItemClickListener {
         void childItemClick(SideMenuItem t);       // 叶子节点点击，终极菜单
+
         void nodeItemClick(SideMenuItem t);        // 节点点击，子菜单
+
         void backPressed();
     }
 }
