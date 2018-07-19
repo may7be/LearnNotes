@@ -1,14 +1,17 @@
 package com.zg.android_net.okhttp;
 
-import com.zg.android_net.util.BaseUtil;
 import com.zg.android_net.bean.NetConfig;
+import com.zg.android_net.util.BaseUtil;
+
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
@@ -78,6 +81,7 @@ public class OkHttpClientFactory {
                 .cookieJar(new CookieJar() {
                     private final PersistentCookieStore cookieStore = new PersistentCookieStore(
                             BaseUtil.getContext());
+
                     @Override
                     public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
                         if (cookies != null && cookies.size() > 0) {
@@ -94,8 +98,8 @@ public class OkHttpClientFactory {
                     }
                 })
                 .addInterceptor(NetConfig.getInterceptor())
-                .connectTimeout(NetConfig.getConnectionTimeout(), TimeUnit.SECONDS)// 连接超时
-                .readTimeout(NetConfig.getReadTimeout(), TimeUnit.SECONDS)// 读取超时
+                .connectTimeout(NetConfig.getConnectionTimeout(), TimeUnit.SECONDS)
+                .readTimeout(NetConfig.getReadTimeout(), TimeUnit.SECONDS)
                 .build();
         return okHttpClient;
     }
