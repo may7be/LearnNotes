@@ -3,6 +3,7 @@ package com.zg.android_utils.util_common;
 import android.util.Base64;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,12 +34,14 @@ public class StringUtils {
 
     /**
      * 保留三位小数
-     *
+     * DecimalFormat的默认roundingMode为HALF_EVEN:这个比较绕，整数位若是奇数则四舍五入，若是偶数则五舍六入。
+     * 而HALF_UP即为传统意义上的四舍五入。
      * @param d
      * @return
      */
     public static String mFormat3(double d) {
         DecimalFormat dFormat = new DecimalFormat();
+        dFormat.setRoundingMode(RoundingMode.HALF_UP);
         dFormat.applyPattern("#0.000");
         return dFormat.format(d * 1000 / 1000.0);
     }

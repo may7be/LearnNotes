@@ -52,7 +52,7 @@ public class WindowUtils {
 
     public static boolean hideKeyboard(Context ctx, IBinder windowToken) {
         InputMethodManager imm = (InputMethodManager) ctx.getSystemService(Context.INPUT_METHOD_SERVICE);
-        return imm.hideSoftInputFromWindow(windowToken, 0);
+        return imm != null && imm.hideSoftInputFromWindow(windowToken, 0);
     }
 
     public static void showKeyboard(Context ctx, View view) {
@@ -118,6 +118,7 @@ public class WindowUtils {
 
     /**
      * 针对dialog进行适当的放缩
+     *
      * @param dialog
      */
     public static void scaleWindowToFitDifferentScreen(Dialog dialog) {
@@ -130,6 +131,7 @@ public class WindowUtils {
 
     /**
      * 针对activity进行scale,以适配不同的分辨率和dpi
+     *
      * @param activity
      */
     public static void scaleWindowToFitDifferentScreen(Activity activity, final int designWidth, final int designHeight) {

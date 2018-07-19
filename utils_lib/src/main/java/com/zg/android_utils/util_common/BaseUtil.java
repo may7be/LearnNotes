@@ -5,7 +5,7 @@ import android.content.Context;
 
 /**
  * Created by ZhaoKeqiang on 2017/8/30.
- * TODO:
+ * TODO: 提供全局的Context
  */
 
 public class BaseUtil {
