@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Learn</string>
-    <string name="popup_test">popup test</string>
+    <string name="debug_menu">Debug Menu</string>
+    <string name="dispatch">dispatch event</string>
+    <string name="test_rj">Test RJ</string>
 </resources>
