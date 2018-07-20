@@ -121,10 +121,10 @@
         <attr name="dividerWidth" format="dimension" />
     </declare-styleable>
     <declare-styleable name="CustomTableLayout">
-        <attr name="rowCount" format="integer" />
-        <attr name="columnCount" format="integer" />
-        <attr name="verticalCellPadding" format="dimension" />
-        <attr name="horizontalCellPadding" format="dimension" />
+        <attr name="rowSize" format="integer" />
+        <attr name="columnSize" format="integer" />
+        <attr name="verticalCellSpacing" format="dimension" />
+        <attr name="horizontalCellSpacing" format="dimension" />
     </declare-styleable>
     <declare-styleable name="GifView">
         <attr name="gif" format="reference" />
