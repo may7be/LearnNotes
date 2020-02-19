@@ -14,6 +14,7 @@ import com.demo.bean.DispatchBean;
 import com.demo.myapplication.R;
 import com.demo.myapplication.databinding.ActivityMainBinding;
 import com.demo.rxjava2.Demo;
+import com.zg.android_utils.util_common.RomUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,21 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "onClick", Toast.LENGTH_SHORT).show();
                 Log.i("aa", "click");
                 Demo.testConcatMap();
+            }
+        });
+        mBinding.btnDispatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("rom_util", "is nubia: " + RomUtils.isNubia());
+
+                //fake
+                List<DispatchBean> dataList = new ArrayList<>();
+
+                dataList.add(new DispatchBean("isNubia:" + RomUtils.isNubia()));
+                dataList.add(new DispatchBean("brand:" + RomUtils.getBrand()));
+                dataList.add(new DispatchBean("manufacturer:" + RomUtils.getManufacturer()));
+                dataList.add(new DispatchBean("romName:" + RomUtils.getRomInfo().getName()));
+                mDispatchAdapter.setNewData(dataList);
             }
         });
     }

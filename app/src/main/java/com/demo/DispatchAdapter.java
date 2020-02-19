@@ -3,6 +3,7 @@ package com.demo;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -24,6 +25,9 @@ public class DispatchAdapter extends BaseQuickAdapter<DispatchBean, BaseViewHold
 
     @Override
     protected void convert(final BaseViewHolder helper, DispatchBean item) {
+        View view = helper.getView(R.id.tv1);
+        TextView tvText = (TextView) view;
+        tvText.setText(item.getTc());
         helper.getView(R.id.tv1).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
