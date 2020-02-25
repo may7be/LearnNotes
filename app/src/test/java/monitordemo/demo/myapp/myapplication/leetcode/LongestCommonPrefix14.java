@@ -23,7 +23,7 @@ package monitordemo.demo.myapp.myapplication.leetcode;
  * 链接：https://leetcode-cn.com/problems/longest-common-prefix
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LongestCommonPrefix {
+public class LongestCommonPrefix14 {
 
     public String longestCommonPrefix(String[] strs) {
         //1. 首先判空 2.按照长短排序 3.从最短的str开始遍历是否startWith,如果是直接返回即可；如果不是，最短的切割掉最后一位，再次遍历

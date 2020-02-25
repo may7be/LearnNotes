@@ -23,7 +23,7 @@ package monitordemo.demo.myapp.myapplication.leetcode;
  * C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
  * 给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。
  */
-public class RomeNum2Int {
+public class RomeNum2Int13 {
     public int romanToInt(String s) {
         //思路
         //1. s是罗马数字，说明肯定是合法的，不会出现别的字符。而且是1-3999之间，也排除了0的可能（查资料发现确实罗马数字里没有0）

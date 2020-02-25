@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * @Author zhao on 2020-02-19
  */
-public class PalindromeTest {
+public class Palindrome9 {
     public boolean isPalindrome(int x) {
         //1. 负数应该都不满足 2.转为字符串，反转，比对即可
         //问题：需要额外的空间 o(x.length)

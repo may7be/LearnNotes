@@ -19,7 +19,7 @@ package monitordemo.demo.myapp.myapplication.leetcode;
  * 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class RemoveDuplicates {
+public class RemoveDuplicates26 {
 
     public int removeDuplicates(int[] nums) {
         //1. 判空 2.遍历, 不纠结怎么删除，只需要记录新数组的长度即可
