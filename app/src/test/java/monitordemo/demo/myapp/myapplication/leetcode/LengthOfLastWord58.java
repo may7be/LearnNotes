@@ -23,7 +23,7 @@ import org.junit.Test;
  * 链接：https://leetcode-cn.com/problems/length-of-last-word
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class LengthOfLastWord {
+public class LengthOfLastWord58 {
     public int lengthOfLastWord(String s) {
         //1. 判空 2. 倒着找空格即好，从第一个不是空格的地方记录，然后依次找空格即好. 边界问题是重点
         //或者可以用切割来

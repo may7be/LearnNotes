@@ -21,7 +21,7 @@ import org.junit.Test;
  * 链接：https://leetcode-cn.com/problems/add-binary
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class AddBinary {
+public class AddBinary67 {
     public String addBinary(String a, String b) {
         //1. 非空字符串 2. 倒序相加即可
         //思路2：先转为十进制，相加后再转为二进制即可；
