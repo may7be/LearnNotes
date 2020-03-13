@@ -72,7 +72,7 @@ public class SortArray2BST108 {
         }
         int p = (left + right) / 2;
         TreeNode root = new TreeNode(nums[p]);
-        root.left = createTree(0, p - 1, nums);
+        root.left = createTree(left, p - 1, nums);
         root.right = createTree(p + 1, right, nums);
         return root;
     }
