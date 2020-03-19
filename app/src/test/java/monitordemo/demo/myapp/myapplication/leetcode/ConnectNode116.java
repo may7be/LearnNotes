@@ -1,7 +1,6 @@
 package monitordemo.demo.myapp.myapplication.leetcode;
 
 import org.junit.Test;
-import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -167,29 +166,6 @@ public class ConnectNode116 {
         connect5(root.left);
         connect5(root.right);
         return root;
-    }
-
-
-
-    class Node {
-        public int val;
-        public Node left;
-        public Node right;
-        public Node next;
-
-        public Node() {
-        }
-
-        public Node(int _val) {
-            val = _val;
-        }
-
-        public Node(int _val, Node _left, Node _right, Node _next) {
-            val = _val;
-            left = _left;
-            right = _right;
-            next = _next;
-        }
     }
 
     @Test
