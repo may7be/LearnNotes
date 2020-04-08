@@ -20,6 +20,16 @@ public class TreeNode {
         val = x;
     }
 
+    static boolean isEquals(TreeNode a, TreeNode b){
+        if (a == null && b == null) {
+            return true;
+        }
+        if (a == null || b == null) {
+            return false;
+        }
+        return a.val == b.val;
+    }
+
     static List<String> toList(TreeNode node) {
         List<TreeNode> nodes = new ArrayList<>();
         nodes.add(node);
