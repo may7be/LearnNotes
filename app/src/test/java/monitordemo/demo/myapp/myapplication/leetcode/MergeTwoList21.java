@@ -1,5 +1,8 @@
 package monitordemo.demo.myapp.myapplication.leetcode;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @Author zhao on 2020-02-23
  * 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
@@ -75,6 +78,47 @@ public class MergeTwoList21 {
             l2.next = mergeTwoLists2(l2.next, l1);
             return l2;
         }
+    }
+
+    public ListNode mergeTwoLists3(ListNode l1, ListNode l2) {
+        //1.
+        List<Integer> list = new LinkedList<>();
+        while (l1 != null || l2 != null) {
+            if (l1 == null) {
+                list.add(l2.val);
+                l2 = l2.next;
+                continue;
+            }
+            if (l2 == null) {
+                list.add(l1.val);
+                l1 = l1.next;
+                continue;
+            }
+            if (l1.val < l2.val) {
+                list.add(l1.val);
+                l1 = l1.next;
+            } else if (l1.val == l2.val) {
+                list.add(l1.val);
+                list.add(l2.val);
+                l1 = l1.next;
+                l2 = l2.next;
+            } else {
+                list.add(l2.val);
+                l2 = l2.next;
+            }
+        }
+        //2.
+        ListNode root = null, temp = null;
+        for (Integer integer : list) {
+            if (temp == null) {
+                root = new ListNode(integer);
+                temp = root;
+            } else {
+                temp.next = new ListNode(integer);
+                temp = temp.next;
+            }
+        }
+        return root;
     }
 
 
