@@ -10,6 +10,16 @@ import java.util.List;
 public class ConvertBST538 {
     private int cot;
 
+    public TreeNode convertBST4(TreeNode root) {
+        //双百解法
+        if (root != null) {
+            convertBST4(root.right);
+            cot += root.val;
+            root.val = cot;
+            convertBST4(root.left);
+        }
+        return root;
+    }
     public TreeNode convertBST3(TreeNode root) {
         //递归：按照右中左的顺序来即可
         //1.
