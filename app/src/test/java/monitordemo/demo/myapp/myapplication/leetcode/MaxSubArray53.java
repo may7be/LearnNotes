@@ -4,6 +4,7 @@ import org.junit.Test;
 
 /**
  * @Author zhao on 2020-02-29
+ * 53. 最大子序和
  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
  * <p>
  * 示例:
@@ -19,7 +20,7 @@ import org.junit.Test;
  * 链接：https://leetcode-cn.com/problems/maximum-subarray
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class MaxSubArray52 {
+public class MaxSubArray53 {
     public int maxSubArray(int[] nums) {
         //1. 判空 2. 遍历：<=0的直接放弃；跟下一项相加，<=0放弃；
         //nums至少一个元素
@@ -104,12 +105,31 @@ public class MaxSubArray52 {
         return max;
     }
 
+    public int maxSubArray4(int[] nums) {
+        //思路：依次寻找最大子链，然后记录max即可
+        //一个元素时，最大子链就是自身，max就是第一个值
+        //当有第二个元素时，首先看记录的chainCount是否大于0，不大于0的话，就可抛弃前面的子链了；然后更新max
+        //当有第三个元素时，还是看chainCount,大于0的话，直接加上；然后更新max
+        //当有第四个元素时，重复步骤2
+        //[-2,1,-3,4,-1,2,1,-5,4],
+        //[-2,1]
+        if (nums == null) {
+            return 0;
+        }
+        int chain = 0, max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            chain = chain > 0 ? chain + num : num;
+            max = Math.max(chain, max);
+        }
+        return Math.max(max, chain);
+    }
+
     @Test
     public void fun() {
         int[] nums1 = new int[]{-1, -12, -1, -2, -3};
         int[] nums2 = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int[] nums3 = new int[]{-1, 1, 2, 1};
-        int[] nums4 = new int[]{-2,3,1,3};
+        int[] nums4 = new int[]{-2, 3, 1, 3};
 
         System.out.println("max: " + maxSubArray3(nums4));
     }
