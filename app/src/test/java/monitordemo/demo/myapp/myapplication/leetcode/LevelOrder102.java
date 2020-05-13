@@ -1,5 +1,8 @@
 package monitordemo.demo.myapp.myapplication.leetcode;
 
+import android.print.PrinterId;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -81,6 +84,34 @@ public class LevelOrder102 {
             for (int i = 0; i < removeSize - 1; i++) {
                 nodeList.remove(0);
             }
+        }
+        return lists;
+    }
+
+    public List<List<Integer>> levelOrder3(TreeNode root) {
+        //按层遍历即可
+        //1.
+        List<List<Integer>> lists = new ArrayList<>();
+        if (root == null) {
+            return lists;
+        }
+        //2.
+        List<TreeNode> nodes = new ArrayList<>();
+        nodes.add(root);
+        while (!nodes.isEmpty()) {
+            int size = nodes.size();
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode remove = nodes.remove(0);
+                list.add(remove.val);
+                if (remove.left != null) {
+                    nodes.add(remove.left);
+                }
+                if (remove.right != null) {
+                    nodes.add(remove.right);
+                }
+            }
+            lists.add(list);
         }
         return lists;
     }
