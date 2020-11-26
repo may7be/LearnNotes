@@ -2,8 +2,8 @@ package com.zg.android_view;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
