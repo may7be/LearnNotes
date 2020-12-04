@@ -17,7 +17,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -25,4 +32,5 @@ dependencies {
     androidTestApi 'androidx.test.ext:junit:1.1.2'
     androidTestApi 'androidx.test.espresso:espresso-core:3.3.0'
     api project(':gradle_lib')
+    api project(':utils_lib')
 }

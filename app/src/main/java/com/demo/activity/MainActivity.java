@@ -1,9 +1,6 @@
 package com.demo.activity;
 
-import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,10 +12,14 @@ import com.demo.myapplication.R;
 import com.demo.myapplication.databinding.ActivityMainBinding;
 import com.demo.rxjava2.Demo;
 import com.zg.android_utils.util_common.RomUtils;
+import com.zhao.storage.PrivateActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import demo.com.debugutil.MainMenuManager;
 
 
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void testRxJava() {
         Demo.testFlatMap();
+        mBinding.btnStorage.setOnClickListener(v -> {
+            PrivateActivity.show(this);
+        });
         mBinding.btnRj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

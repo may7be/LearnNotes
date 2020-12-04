@@ -31,6 +31,11 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/ASL2.0'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 repositories {
@@ -45,4 +50,5 @@ dependencies {
     androidTestApi 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(':menu_lib')
     api project(':gradle_lib')
+    api project(':storage_lib')
 }
