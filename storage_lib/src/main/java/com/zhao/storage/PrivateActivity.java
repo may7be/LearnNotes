@@ -86,6 +86,31 @@ public class PrivateActivity extends AppCompatActivity {
             String s = FileUtil.readStringFromFilePath(path);
             mBinding.tvOutReadContent.setText(s);
         });
+
+        mBinding.tvEnvironment.setOnClickListener(v -> {
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            File dataDirectory = Environment.getDataDirectory();
+            File downloadCacheDirectory = Environment.getDownloadCacheDirectory();
+            File rootDirectory = Environment.getRootDirectory();
+            File storageDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+            File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+            File externalFilesDir = getExternalFilesDir(Environment.DIRECTORY_DCIM);
+            StringBuilder sb = new StringBuilder();
+            sb.append(externalStorageDirectory.getAbsolutePath());
+            sb.append("\n");
+            sb.append(dataDirectory.getAbsolutePath());
+            sb.append("\n");
+            sb.append(downloadCacheDirectory.getAbsolutePath());
+            sb.append("\n");
+            sb.append(rootDirectory.getAbsolutePath());
+            sb.append("\n");
+            sb.append(storageDirectory.getAbsolutePath());
+            sb.append("\n");
+            sb.append(externalStoragePublicDirectory.getAbsolutePath());
+            sb.append("\n");
+            sb.append(externalFilesDir.getAbsolutePath());
+            mBinding.tvEnvironmentContent.setText(sb.toString());
+        });
     }
 
     public static void show(Context context) {

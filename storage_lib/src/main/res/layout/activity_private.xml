@@ -19,8 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            />
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:id="@+id/tv_in_write"
@@ -35,8 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:layout_marginLeft="20dp" />
 
         <TextView
             android:id="@+id/tv_in_read"
@@ -51,8 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:layout_marginLeft="20dp" />
 
         <TextView
             android:id="@+id/tv_out"
@@ -67,8 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            />
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:id="@+id/tv_out_write"
@@ -76,16 +72,14 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_blue_light"
             android:padding="20dp"
-            android:text="2.1写入cache"
-            />
+            android:text="2.1写入cache" />
 
         <TextView
             android:id="@+id/tv_out_write_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:layout_marginLeft="20dp" />
 
         <TextView
             android:id="@+id/tv_out_read"
@@ -100,8 +94,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:id="@+id/tv_environment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_light"
+            android:padding="10dp"
+            android:text="3.Environment: 私有目录和共享目录都可读取" />
+
+        <TextView
+            android:id="@+id/tv_environment_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp" />
 
     </LinearLayout>
 </layout>
