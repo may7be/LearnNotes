@@ -1,6 +1,7 @@
 package com.zg.android_utils.util_common;
 
 import android.content.Context;
+import android.os.Environment;
 import android.text.TextUtils;
 
 import java.io.BufferedReader;
@@ -109,6 +110,26 @@ public class FileUtil {
 
     public static boolean isFileCanRead(File file) {
         return file != null && file.exists() && file.canRead();
+    }
+
+    /**
+     * Checks if external storage is available for read and write
+     *
+     * @return t
+     */
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state);
+    }
+
+    /**
+     * Checks if external storage is available to at least read
+     *
+     * @return t
+     */
+    public boolean isExternalStorageReadable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
     //得到会员key

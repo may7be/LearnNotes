@@ -104,6 +104,12 @@
             android:padding="10dp"
             android:text="3.Environment: 私有目录和共享目录都可读取" />
 
+        <Button
+            android:id="@+id/btn_jump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跳转Shared" />
+
         <TextView
             android:id="@+id/tv_environment_content"
             android:layout_width="wrap_content"

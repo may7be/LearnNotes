@@ -111,6 +111,9 @@ public class PrivateActivity extends AppCompatActivity {
             sb.append(externalFilesDir.getAbsolutePath());
             mBinding.tvEnvironmentContent.setText(sb.toString());
         });
+        mBinding.btnJump.setOnClickListener(v -> {
+            SharedActivity.show(this);
+        });
     }
 
     public static void show(Context context) {

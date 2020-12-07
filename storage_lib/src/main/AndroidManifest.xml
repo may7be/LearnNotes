@@ -3,5 +3,6 @@
 
     <application>
         <activity android:name=".PrivateActivity" />
+        <activity android:name=".SharedActivity" />
     </application>
 </manifest>
