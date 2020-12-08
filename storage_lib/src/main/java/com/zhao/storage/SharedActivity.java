@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 
+import com.zg.android_utils.util_common.FileUtil;
+import com.zg.android_utils.util_common.ToastUtil;
 import com.zhao.storage.databinding.ActivitySharedBinding;
 
 import java.io.File;
@@ -40,8 +42,65 @@ public class SharedActivity extends AppCompatActivity {
 
     private void init() {
         binding.tvReadDirectory.setOnClickListener(v -> {
-            File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+            File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             binding.tvDirectoryContent.setText(externalStoragePublicDirectory.getAbsolutePath());
+        });
+
+        binding.tvWrite.setOnClickListener(v -> {
+            if (!FileUtil.isExternalStorageWritable()) {
+                ToastUtil.showToast("sd卡不能写入，应该是无SD卡");
+                return;
+            }
+            File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            String path = externalStoragePublicDirectory.getAbsolutePath() + "/test.txt";
+            StringBuilder sb = new StringBuilder();
+            sb.append("1.1.1写入Download/test.txt:");
+            sb.append("\n");
+            sb.append("11可以正常读写");
+            sb.append("\n");
+            sb.append("10无法写入，提示没有权限");
+            sb.append("\n");
+            sb.append("1.1.2写入Music/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.3写入Podcasts/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.4写入Ringtones/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.5写入Alrams/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.6写入Notifications/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.7写入Pictures/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.8写入Movies/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.9写入Dicm/test.txt:");
+            sb.append("\n");
+            sb.append("11无法写入，提示操作被拒绝");
+            sb.append("\n");
+            sb.append("1.1.10写入Documents/test.txt:");
+            sb.append("\n");
+            sb.append("11可以正常读写");
+            sb.append("\n");
+            sb.append("10无法写入，提示没有权限");
+            FileUtil.writeStringToFile(path, sb.toString());
+            //读取
+            String s = FileUtil.readStringFromFilePath(path);
+            binding.tvRead.setText(s);
         });
 
     }

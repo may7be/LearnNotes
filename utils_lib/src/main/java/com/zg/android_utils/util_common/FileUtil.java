@@ -94,6 +94,7 @@ public class FileUtil {
             String str;
             while ((str = br.readLine()) != null) {
                 stringBuffer.append(str);
+                stringBuffer.append("\n");
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -117,7 +118,7 @@ public class FileUtil {
      *
      * @return t
      */
-    public boolean isExternalStorageWritable() {
+    public static boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         return Environment.MEDIA_MOUNTED.equals(state);
     }
@@ -127,7 +128,7 @@ public class FileUtil {
      *
      * @return t
      */
-    public boolean isExternalStorageReadable() {
+    public static boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
         return Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
