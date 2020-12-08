@@ -3,7 +3,6 @@ package com.zg.android_utils.util_common;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.Gravity;
 import android.widget.Toast;
 
 public class ToastUtil {
@@ -22,7 +21,6 @@ public class ToastUtil {
                 } else {
                     mToast.setText(info);
                 }
-                mToast.setGravity(Gravity.CENTER, 0, 0);
                 mToast.show();
             }
         });

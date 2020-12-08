@@ -1,11 +1,20 @@
 package com.zhao.storage;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 
+import com.qw.soul.permission.SoulPermission;
+import com.qw.soul.permission.bean.Permission;
+import com.qw.soul.permission.callbcak.CheckRequestPermissionListener;
+import com.uber.autodispose.AutoDispose;
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
 import com.zg.android_utils.util_common.FileUtil;
 import com.zg.android_utils.util_common.ToastUtil;
 import com.zhao.storage.databinding.ActivitySharedBinding;
@@ -15,6 +24,10 @@ import java.io.File;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Lifecycle;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * @Author zhao on 2020/12/7
@@ -103,7 +116,61 @@ public class SharedActivity extends AppCompatActivity {
             binding.tvRead.setText(s);
         });
 
+        //MediaStore
+        binding.tvMs.setOnClickListener(v -> {
+            SoulPermission.getInstance().checkAndRequestPermission(Manifest.permission.READ_EXTERNAL_STORAGE, new CheckRequestPermissionListener() {
+                @Override
+                public void onPermissionOk(Permission permission) {
+                    showPhotoInfos();
+                }
+
+                @Override
+                public void onPermissionDenied(Permission permission) {
+                    ToastUtil.showToast("你已拒绝读取存储的权限,请到设置里自行打开");
+                }
+            });
+
+        });
+
     }
+
+    /**
+     * 读取手机中所有图片信息
+     */
+    private void showPhotoInfos() {
+        Observable.fromCallable(() -> {
+            Uri mImageUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+            String[] projImage = {MediaStore.Images.Media._ID
+                    , MediaStore.Images.Media.DATA
+                    , MediaStore.Images.Media.SIZE
+                    , MediaStore.Images.Media.DISPLAY_NAME};
+            Cursor mCursor = getContentResolver().query(mImageUri,
+                    projImage,
+                    MediaStore.Images.Media.MIME_TYPE + "=? or " + MediaStore.Images.Media.MIME_TYPE + "=?",
+                    new String[]{"image/jpeg", "image/png"},
+                    MediaStore.Images.Media.DATE_MODIFIED + " desc");
+            StringBuilder sb = new StringBuilder();
+            if (mCursor != null) {
+                int a = 0;
+                while (mCursor.moveToNext() && a <= 5) {
+                    // 获取图片的路径
+                    String path = mCursor.getString(mCursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                    int size = mCursor.getInt(mCursor.getColumnIndex(MediaStore.Images.Media.SIZE)) / 1024;
+                    String displayName = mCursor.getString(mCursor.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME));
+
+                    //显示出path
+                    sb.append(path);
+                    sb.append("\n");
+                    a++;
+                }
+                mCursor.close();
+            }
+            return sb.toString();
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(this, Lifecycle.Event.ON_DESTROY)))
+                .subscribe(s -> binding.tvMsContent.setText(s));
+    }
+
 
     public static void show(Context context) {
         Intent intent = new Intent(context, SharedActivity.class);
