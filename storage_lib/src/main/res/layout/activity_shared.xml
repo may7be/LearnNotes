@@ -59,5 +59,24 @@
             android:layout_marginStart="20dp"
             android:text="" />
 
+        <TextView
+            android:id="@+id/tv_saf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_bright"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="1.2 SAF.api" />
+
+        <TextView
+            android:id="@+id/tv_saf_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:text="" />
+
     </LinearLayout>
 </layout>

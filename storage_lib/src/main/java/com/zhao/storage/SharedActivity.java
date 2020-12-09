@@ -20,6 +20,7 @@ import com.zg.android_utils.util_common.ToastUtil;
 import com.zhao.storage.databinding.ActivitySharedBinding;
 
 import java.io.File;
+import java.text.MessageFormat;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -132,6 +133,29 @@ public class SharedActivity extends AppCompatActivity {
 
         });
 
+        //SAF api
+        binding.tvSaf.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            // 只显示可以打开的文件
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            // 可选择所有文件类型
+            intent.setType("*/*");
+            // 只可选择jpeg图片
+            // intent.type = "image/jpeg"
+            startActivityForResult(intent, 1);
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode == Activity.RESULT_OK && requestCode == 1) {
+            if (data != null && data.getData() != null) {
+                Uri uri = data.getData();
+                String path = FileUtil.getPath(this, uri);
+                binding.tvSafContent.setText(MessageFormat.format("{0}\n{1}", uri.toString(), path));
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     /**
