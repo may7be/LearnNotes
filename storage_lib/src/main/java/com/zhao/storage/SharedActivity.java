@@ -118,7 +118,7 @@ public class SharedActivity extends AppCompatActivity {
         });
 
         //MediaStore
-        binding.tvMs.setOnClickListener(v -> {
+        binding.btnMsRead.setOnClickListener(v -> {
             SoulPermission.getInstance().checkAndRequestPermission(Manifest.permission.READ_EXTERNAL_STORAGE, new CheckRequestPermissionListener() {
                 @Override
                 public void onPermissionOk(Permission permission) {
@@ -164,26 +164,28 @@ public class SharedActivity extends AppCompatActivity {
     private void showPhotoInfos() {
         Observable.fromCallable(() -> {
             Uri mImageUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-            String[] projImage = {MediaStore.Images.Media._ID
+            String[] projection = {MediaStore.Images.Media._ID
                     , MediaStore.Images.Media.DATA
                     , MediaStore.Images.Media.SIZE
                     , MediaStore.Images.Media.DISPLAY_NAME};
-            Cursor mCursor = getContentResolver().query(mImageUri,
-                    projImage,
-                    MediaStore.Images.Media.MIME_TYPE + "=? or " + MediaStore.Images.Media.MIME_TYPE + "=?",
-                    new String[]{"image/jpeg", "image/png"},
-                    MediaStore.Images.Media.DATE_MODIFIED + " desc");
+            String selection = MediaStore.Images.Media.MIME_TYPE + "=? or " + MediaStore.Images.Media.MIME_TYPE + "=?";
+            String[] selectionArgs = {"image/jpeg", "image/png"};
+            String sortOrder = MediaStore.Images.Media.DATE_MODIFIED + " desc";
+            Cursor mCursor = getContentResolver().query(mImageUri, projection, selection, selectionArgs, sortOrder);
             StringBuilder sb = new StringBuilder();
             if (mCursor != null) {
                 int a = 0;
                 while (mCursor.moveToNext() && a <= 5) {
                     // 获取图片的路径
                     String path = mCursor.getString(mCursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                    int id = mCursor.getInt(mCursor.getColumnIndex(MediaStore.Images.Media._ID));
                     int size = mCursor.getInt(mCursor.getColumnIndex(MediaStore.Images.Media.SIZE)) / 1024;
                     String displayName = mCursor.getString(mCursor.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME));
 
                     //显示出path
                     sb.append(path);
+                    sb.append("\n");
+                    sb.append(id);
                     sb.append("\n");
                     a++;
                 }
@@ -192,7 +194,7 @@ public class SharedActivity extends AppCompatActivity {
             return sb.toString();
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(this, Lifecycle.Event.ON_DESTROY)))
-                .subscribe(s -> binding.tvMsContent.setText(s));
+                .subscribe(s -> binding.tvMsReadContent.setText(s));
     }
 
 
