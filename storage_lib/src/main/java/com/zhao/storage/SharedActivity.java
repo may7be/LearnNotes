@@ -2,6 +2,7 @@ package com.zhao.storage;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,6 +21,9 @@ import com.zg.android_utils.util_common.ToastUtil;
 import com.zhao.storage.databinding.ActivitySharedBinding;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.MessageFormat;
 
 import androidx.annotation.Nullable;
@@ -118,6 +122,7 @@ public class SharedActivity extends AppCompatActivity {
         });
 
         //MediaStore
+        //读取相关目录：需要read权限
         binding.btnMsRead.setOnClickListener(v -> {
             SoulPermission.getInstance().checkAndRequestPermission(Manifest.permission.READ_EXTERNAL_STORAGE, new CheckRequestPermissionListener() {
                 @Override
@@ -130,7 +135,58 @@ public class SharedActivity extends AppCompatActivity {
                     ToastUtil.showToast("你已拒绝读取存储的权限,请到设置里自行打开");
                 }
             });
-
+        });
+        //写入文件：不需要权限
+        binding.btnMsWrite.setOnClickListener(v -> {
+            //第一种和第二种方式其实访问到的都是/sdcard/Download目录
+            Uri uri = MediaStore.Files.getContentUri("external");
+//            Uri uri = MediaStore.Downloads.EXTERNAL_CONTENT_URI;
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(MediaStore.Files.FileColumns.MIME_TYPE, "txt");
+            contentValues.put(MediaStore.Files.FileColumns.DISPLAY_NAME, "test3.txt");
+            Uri insert = getContentResolver().insert(uri, contentValues);
+            if (insert == null) {
+                ToastUtil.showToast("insert == null");
+                return;
+            }
+            try {
+                OutputStream outputStream = getContentResolver().openOutputStream(insert);
+                if (outputStream == null) {
+                    ToastUtil.showToast("outputStream == null");
+                    return;
+                }
+                String test = "第一行test";
+                outputStream.write(test.getBytes());
+                outputStream.flush();
+                binding.tvMsWriteContent.setText(test);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        //读取自己写入的文件：不需要权限
+        binding.btnMsReadSelf.setOnClickListener(v -> {
+            Uri uri = MediaStore.Files.getContentUri("external");
+            String[] projection = {MediaStore.Files.FileColumns._ID
+                    , MediaStore.Files.FileColumns.DATA
+                    , MediaStore.Files.FileColumns.SIZE
+                    , MediaStore.Files.FileColumns.DISPLAY_NAME};
+            String selection = MediaStore.Files.FileColumns.MIME_TYPE + "=? or " + MediaStore.Files.FileColumns.MIME_TYPE + "=?";
+            String[] selectionArgs = {"download/txt"};
+            String sortOrder = MediaStore.Files.FileColumns.DATE_MODIFIED + " desc";
+            Cursor cursor = getContentResolver().query(uri, projection, null, null, sortOrder);
+            if (cursor != null) {
+                StringBuilder sb = new StringBuilder();
+                while (cursor.moveToNext()) {
+                    // 获取路径
+                    String path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA));
+                    sb.append(path);
+                    sb.append("\n");
+                }
+                binding.tvMsReadSelfContent.setText(sb.toString());
+                cursor.close();
+            }
         });
 
         //SAF api
