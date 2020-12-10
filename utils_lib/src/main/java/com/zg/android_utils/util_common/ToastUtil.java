@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
+import androidx.annotation.StringRes;
+
 public class ToastUtil {
 
     private static Toast mToast;
@@ -26,7 +28,7 @@ public class ToastUtil {
         });
     }
 
-    public static void showToast(Context context, int stringId) {
+    public static void showToast(Context context, @StringRes int stringId) {
         showToast(context, context.getResources().getString(stringId));
     }
 

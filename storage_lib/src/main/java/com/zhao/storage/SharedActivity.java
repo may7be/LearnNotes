@@ -188,6 +188,12 @@ public class SharedActivity extends AppCompatActivity {
                 cursor.close();
             }
         });
+        //删除自己写入的文件: 并非完全的api
+        binding.btnMsDeleteSelf.setOnClickListener(v -> {
+            Uri uri = MediaStore.Files.getContentUri("external");
+            int delete = getContentResolver().delete(uri, null, null);
+            ToastUtil.showToast(String.valueOf(delete));
+        });
 
         //SAF api
         binding.tvSaf.setOnClickListener(v -> {
