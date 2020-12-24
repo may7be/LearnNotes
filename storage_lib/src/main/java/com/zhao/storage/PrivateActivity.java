@@ -86,6 +86,12 @@ public class PrivateActivity extends AppCompatActivity {
             String s = FileUtil.readStringFromFilePath(path);
             mBinding.tvOutReadContent.setText(s);
         });
+        mBinding.tvOutWrite2.setOnClickListener(v -> {
+            //事实证明在根目录直接写入会报错，需要等目录真的创建，才可以
+            String path = Environment.getExternalStorageDirectory().getPath() + "/Android/data/" + getPackageName() + "/testcache2.txt";
+            String s = "\n写入testcache2.txt的第一行字符串";
+            FileUtil.writeStringToFile(path, s);
+        });
 
         mBinding.tvEnvironment.setOnClickListener(v -> {
             File externalStorageDirectory = Environment.getExternalStorageDirectory();

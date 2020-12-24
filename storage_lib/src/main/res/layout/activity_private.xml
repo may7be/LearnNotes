@@ -97,6 +97,14 @@
             android:layout_marginLeft="20dp" />
 
         <TextView
+            android:id="@+id/tv_out_write2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_light"
+            android:padding="20dp"
+            android:text="2.3写入files的同级目录，验证同级目录是否需要写入权限" />
+
+        <TextView
             android:id="@+id/tv_environment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
