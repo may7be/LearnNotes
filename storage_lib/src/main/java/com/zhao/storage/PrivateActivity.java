@@ -38,12 +38,28 @@ public class PrivateActivity extends AppCompatActivity {
             File filesDir = getFilesDir();
             File cacheDir = getCacheDir();
             File dataDirectory = Environment.getDataDirectory();
+            File dir = getDir("", MODE_PRIVATE);
+            File obbDir = getObbDir();
+            File dataDir = getDataDir();
+            File codeCacheDir = getCodeCacheDir();
+            File noBackupFilesDir = getNoBackupFilesDir();
+
 
             sb.append(filesDir.getAbsolutePath());
             sb.append("\n");
             sb.append(cacheDir.getAbsolutePath());
             sb.append("\n");
             sb.append(dataDirectory.getAbsolutePath());
+            sb.append("\n");
+            sb.append(dir.getAbsolutePath());
+            sb.append("\n");
+            sb.append(obbDir.getAbsolutePath());
+            sb.append("\n");
+            sb.append(dataDir.getAbsolutePath());
+            sb.append("\n");
+            sb.append(codeCacheDir.getAbsolutePath());
+            sb.append("\n");
+            sb.append(noBackupFilesDir.getAbsolutePath());
             mBinding.tvInContent.setText(sb.toString());
         });
         mBinding.tvInWrite.setOnClickListener(v -> {
