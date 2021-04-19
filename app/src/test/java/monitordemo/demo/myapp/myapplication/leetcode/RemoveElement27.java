@@ -54,11 +54,32 @@ public class RemoveElement27 {
         while (i < length) {
             if (nums[i] != val) {
                 i++;
-            }else {
+            } else {
                 nums[i] = nums[length - 1];
                 length--;
             }
         }
         return i;
+    }
+
+    /**
+     * 0 <= nums.length <= 100
+     * 0 <= nums[i] <= 50
+     * 0 <= val <= 100
+     */
+    public int removeElement4(int[] nums, int val) {
+        //记录相等的次数，然后跟数组最后一位换位。
+        int len = nums.length;
+        int count = 0;
+        for (int i = 0; i < len; i++) {
+            if (nums[i] == val) {
+                count++;
+                nums[i] = nums[len - 1];
+                nums[len - 1] = -1;
+                len--;
+                i--;
+            }
+        }
+        return nums.length - count;
     }
 }
