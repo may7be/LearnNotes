@@ -27,6 +27,63 @@ import org.junit.Test;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class StrStr28 {
+    public int strStr3(String haystack, String needle) {
+        if (haystack == null || needle == null) {
+            return -1;
+        }
+        int len2 = needle.length();
+        if (len2 == 0) {
+            return 0;
+        }
+        int len1 = haystack.length();
+        if (len1 < len2) {
+            return -1;
+        }
+        if (len1 == len2 && !haystack.equals(needle)) {
+            return -1;
+        }
+        //遍历haystack, 切割，然后判断是否startWith
+        for (int i = 0; i < len1; i++) {
+            String substring = haystack.substring(i);
+            if (substring.startsWith(needle)) {
+                return i;
+            } else if (substring.length() < len2) {
+                return -1;
+            }
+        }
+        return -1;
+    }
+
+    public int strStr4(String haystack, String needle) {
+        if (haystack == null || needle == null) {
+            return -1;
+        }
+        int len2 = needle.length();
+        if (len2 == 0) {
+            return 0;
+        }
+        int len1 = haystack.length();
+        if (len1 < len2) {
+            return -1;
+        }
+        if (len1 == len2 && !haystack.equals(needle)) {
+            return -1;
+        }
+        //遍历haystack, 依次比较
+        for (int i = 0; i < len1; i++) {
+            if (haystack.startsWith(needle)) {
+                return i;
+            }else {
+                haystack = haystack.substring(1);
+                if (haystack.length() < len2) {
+                    return -1;
+                }
+            }
+        }
+        return -1;
+    }
+
+
     public int strStr(String haystack, String needle) {
         //0. 判空； 1.不断地切割，然后用startWith判断即可
         if (haystack == null || needle == null) {
