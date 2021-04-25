@@ -20,7 +20,7 @@ public class TreeNode {
         val = x;
     }
 
-    static boolean isEquals(TreeNode a, TreeNode b){
+    static boolean isEquals(TreeNode a, TreeNode b) {
         if (a == null && b == null) {
             return true;
         }
@@ -51,7 +51,7 @@ public class TreeNode {
                 nodes.add(remove.right);
             }
         }
-        System.out.println("nextLevelSize(toList): "+nodes.size());
+        System.out.println("nextLevelSize(toList): " + nodes.size());
         if (nodes.isEmpty()) {
             return list;
         }
@@ -59,7 +59,7 @@ public class TreeNode {
         for (int i = nodes.size() - 1; i >= 0; i--) {
             if (nodes.get(i) == null) {
                 nodes.remove(i);
-            }else {
+            } else {
                 break;
             }
         }
@@ -68,6 +68,33 @@ public class TreeNode {
         }
         list.addAll(helper(nodes));
         return list;
+    }
+
+    public static List<Integer> toValueList(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        recordValue(root, list);
+        return list;
+    }
+
+    private static void recordValue(TreeNode node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+        recordValue(node.left, list);
+        list.add(node.val);
+        recordValue(node.right, list);
+    }
+
+    public boolean noChild() {
+        return left == null && right == null;
+    }
+
+    public boolean haveLeftChild() {
+        return left != null;
+    }
+
+    public boolean haveRightChild() {
+        return right != null;
     }
 
     @Test
