@@ -1,5 +1,9 @@
 package monitordemo.demo.myapp.myapplication.leetcode;
 
+import org.junit.Test;
+
+import java.util.Arrays;
+
 /**
  * @Author zhao on 2020-02-25
  * 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
@@ -81,5 +85,50 @@ public class RemoveElement27 {
             }
         }
         return nums.length - count;
+    }
+
+    public int removeElement5(int[] nums, int val) {
+        //将值为val的元素和最后一个未交换过的元素交换即可
+        int len = nums.length;
+        if (len == 0) {
+            return 0;
+        }
+        int end = len - 1;
+        for (int i = 0; i < len; i++) {
+            System.out.println(Arrays.toString(nums));
+            if (end == i) {
+                break;
+            }
+            if (nums[i] == val) {
+                nums[i] = nums[end];
+                nums[end] = val;
+                end--;
+                i--;
+            }
+        }
+        return nums[end] == val ? end : end + 1;
+    }
+
+    public int removeElement6(int[] nums, int val) {
+        //双指针法：遍历数组，遇到不相等的元素赋值到它该到的位置即可
+        //快指针用来遍历数组，慢指针用来记录符合要求元素的位置
+        int slow = -1;
+        int fast = 0;
+        for (int num : nums) {
+            if (num != val) {
+                slow++;
+                nums[slow] = num;
+            }
+        }
+        return slow + 1;
+    }
+
+
+    @Test
+    public void fun() {
+        int[] nums = {3, 2, 2, 3};
+        int val = 3;
+        System.out.println(removeElement(nums, val));
+        System.out.println(Arrays.toString(nums));
     }
 }
