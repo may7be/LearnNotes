@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void testRxJava() {
         Demo.testFlatMap();
+        mBinding.btnShareElement.setOnClickListener(v -> {
+            Share1Activity.show(this);
+        });
         mBinding.btnStorage.setOnClickListener(v -> {
             PrivateActivity.show(this);
         });

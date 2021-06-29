@@ -10,6 +10,12 @@
         tools:context=".MainActivity">
 
         <Button
+            android:id="@+id/btn_share_element"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/share_element" />
+
+        <Button
             android:id="@+id/btn_storage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
