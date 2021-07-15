@@ -1,8 +1,5 @@
 package monitordemo.demo.myapp.myapplication.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @Author zhao on 7/15/21
  * 所有val值都在 [1, 1000] 之内。
@@ -11,13 +8,14 @@ import java.util.List;
  */
 public class MyLinkedList {
 
-    private List<ListNode> list;
+    private ListNode fakeHead;
+    private int size;
 
     /**
      * Initialize your data structure here.
      */
     public MyLinkedList() {
-        list = new ArrayList<>();
+        fakeHead = new ListNode(-1);
     }
 
     /**
@@ -25,7 +23,11 @@ public class MyLinkedList {
      */
     public int get(int index) {
         if (isValid(index)) {
-            return list.get(index).val;
+            ListNode temp = fakeHead;
+            for (int i = 0; i <= index; i++) {
+                temp = temp.next;
+            }
+            return temp.val;
         }
         return -1;
     }
@@ -35,10 +37,13 @@ public class MyLinkedList {
      */
     public void addAtHead(int val) {
         ListNode node = new ListNode(val);
-        if (!list.isEmpty()) {
-            node.next = list.get(0);
+        if (size == 0) {
+            fakeHead.next = node;
+        } else {
+            node.next = fakeHead.next;
+            fakeHead.next = node;
         }
-        list.add(0, node);
+        size++;
     }
 
     /**
@@ -46,10 +51,12 @@ public class MyLinkedList {
      */
     public void addAtTail(int val) {
         ListNode node = new ListNode(val);
-        if (!list.isEmpty()) {
-            list.get(list.size() - 1).next = node;
+        ListNode temp = fakeHead;
+        for (int i = 0; i < size; i++) {
+            temp = temp.next;
         }
-        list.add(node);
+        temp.next = node;
+        size++;
     }
 
     /**
@@ -59,12 +66,17 @@ public class MyLinkedList {
         index = Math.max(0, index);
         if (index == 0) {
             addAtHead(val);
-        } else if (index < list.size()) {
+        } else if (index < size) {
             ListNode node = new ListNode(val);
-            list.get(index - 1).next = node;
-            node.next = list.get(index);
-            list.add(index, node);
-        } else if (index == list.size()) {
+            ListNode pre = fakeHead;
+            for (int i = 0; i < index; i++) {
+                pre = pre.next;
+            }
+            ListNode nextNode = pre.next;
+            pre.next = node;
+            node.next = nextNode;
+            size++;
+        } else if (index == size) {
             addAtTail(val);
         }
     }
@@ -74,11 +86,16 @@ public class MyLinkedList {
      */
     public void deleteAtIndex(int index) {
         if (isValid(index)) {
-            list.remove(index);
+            ListNode pre = fakeHead;
+            for (int i = 0; i < index; i++) {
+                pre = pre.next;
+            }
+            pre.next = pre.next.next;
+            size--;
         }
     }
 
     private boolean isValid(int index) {
-        return index >= 0 && index <= list.size() - 1;
+        return index >= 0 && index <= size - 1;
     }
 }
