@@ -9,7 +9,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import com.qw.soul.permission.SoulPermission;
 import com.qw.soul.permission.bean.Permission;
@@ -71,6 +73,7 @@ public class SharedActivity extends AppCompatActivity {
             }
             File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             String path = externalStoragePublicDirectory.getAbsolutePath() + "/test.txt";
+            Log.e("zkq", "path: " + path);
             StringBuilder sb = new StringBuilder();
             sb.append("1.1.1写入Download/test.txt:");
             sb.append("\n");
@@ -118,6 +121,7 @@ public class SharedActivity extends AppCompatActivity {
             FileUtil.writeStringToFile(path, sb.toString());
             //读取
             String s = FileUtil.readStringFromFilePath(path);
+            Log.e("zkq", "read: " + s);
             binding.tvRead.setText(s);
         });
 
@@ -201,21 +205,34 @@ public class SharedActivity extends AppCompatActivity {
             // 只显示可以打开的文件
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             // 可选择所有文件类型
-            intent.setType("*/*");
+            intent.setType("application/json");
             // 只可选择jpeg图片
             // intent.type = "image/jpeg"
             startActivityForResult(intent, 1);
+        });
+        binding.tvSafCreate.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType("application/json");
+            intent.putExtra(Intent.EXTRA_TITLE, "test.json");
+            intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, "");
+
+            startActivityForResult(intent, 2);
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (resultCode == Activity.RESULT_OK && requestCode == 1) {
-            if (data != null && data.getData() != null) {
-                Uri uri = data.getData();
+        if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+            Uri uri = data.getData();
+            Log.e("zkq", "onActivityResult: " + uri);
+            if (requestCode == 1) {
                 String path = FileUtil.getPath(this, uri);
                 binding.tvSafContent.setText(MessageFormat.format("{0}\n{1}", uri.toString(), path));
+            } else if (requestCode == 2) {
+                Log.e("zkq", "requestCode == 2 ");
             }
+
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
