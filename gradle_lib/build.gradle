@@ -24,8 +24,8 @@ dependencies {
 
     api 'androidx.appcompat:appcompat:1.2.0'
     api 'junit:junit:4.12'
-    androidTestApi 'androidx.test.ext:junit:1.1.2'
-    androidTestApi 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //for utils_lib
     api 'com.fasterxml.jackson.core:jackson-databind:2.8.6'
