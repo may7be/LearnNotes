@@ -84,6 +84,31 @@ public class ReverseWords151 {
         return "";
     }
 
+    public String reverseWords4(String s) {
+        //trim、倒叙遍历、切割、拼接
+        String trim = s.trim();
+        int len = trim.length();
+        StringBuilder sb = new StringBuilder();
+        int start = -1;
+        for (int i = len - 1; i >= 0; i--) {
+            if (" ".equals(String.valueOf(trim.charAt(i)))) {
+                if (start != -1) {
+                    sb.append(trim.substring(i + 1, start + 1));
+                    sb.append(" ");
+                    start = -1;
+                }
+            } else {
+                if (start == -1) {
+                    start = i;
+                }
+                if (i == 0) {
+                    sb.append(trim.substring(0, start + 1));
+                }
+            }
+        }
+        return sb.toString().trim();
+    }
+
     @Test
     public void fun() {
         String a = null;
